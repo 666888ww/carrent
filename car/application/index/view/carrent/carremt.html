@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>车辆租赁首页</title>
+    <link rel="stylesheet" href="/static/index/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/index/css/index.css" />
+    <script type="text/javascript" src="/static/laydate/laydate.js"></script>
+</head>
+<body>
+<div class="right" style="position: absolute;left:310px;top:50px;width:300px">
+
+            <img src="{$carmessage.carimage}" style="height: 380px;width:360px"/>
+</div>
+<div class="left">
+    <div style="margin-top: 40px;height: 220px;position: absolute;left:700px;top:15px">
+    <lable><div style="border-bottom: 1px solid #c2ccd1;height: 50px;margin-bottom: 20px;border-top: 1px solid #c2ccd1;line-height: 50px;width:400px">&nbsp;&nbsp;车辆名字：
+        <span>{$carmessage.name}</span></div></lable>
+    <lable><div style="border-bottom: 1px solid #c2ccd1;height: 30px;margin-bottom: 20px;line-height: 15px;width:400px">&nbsp;&nbsp;车辆状态：
+        <span>{if $carmessage.status==1}有库存{else/}无库存{/if}</span></div></lable>
+    <lable><div style="border-bottom: 1px solid #c2ccd1;height: 30px;margin-bottom: 20px;line-height: 15px;width:400px">&nbsp;&nbsp;租&nbsp;&nbsp;&nbsp;&nbsp;金：
+        <span style="color: orange">{$carmessage.price}元</span>
+    </div></lable>
+    <lable><div style="border-bottom: 1px solid #c2ccd1;height: 30px;margin-bottom: 20px;line-height: 15px;width:400px">&nbsp;&nbsp;押&nbsp;&nbsp;&nbsp;&nbsp;金：
+        <span style="color: orange">{$carmessage.rent}元</span>
+        </div></lable>
+    <lable><div style="border-bottom: 1px solid #c2ccd1;height: 30px;margin-bottom: 20px;line-height: 15px;width:400px">&nbsp;&nbsp;车辆描述：
+        <span>{$carmessage.cardespertion}</span></div>
+    </lable>
+</div>
+    <div style="position: absolute;left:700px;top:320px">
+        <form action="/index/carrent/update" method="post">
+            <input type="hidden" name="id" value="{$carmessage.id}">
+            <div style="width:980px; margin:5px auto;">
+                开始时间 : <input class="laydate-icon" type="text" onclick="laydate()" name="starttime" ><br /><br />
+                结束时间 : <input class="laydate-icon" type="text" id="demo" name="overtime"  >
+            </div>
+            <div class="form-group" >
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button class="btn btn-primary" type="submit" style="margin-left: -170px;margin-top: 20px">
+                        <a href="{:url('index/carrent/edit')}?id={$carmessage.id}" style="color: #fff"> 立即租车</a>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        ;!function(){
+            laydate({
+                elem: '#demo'
+            })
+        }();
+    </script>
+    <br>
+    <div style="height: 80px;position: absolute;left:800px;top:430px">
+      <a href="{:url('index/index/first')}"> &nbsp; &nbsp;返回首页</a>
+    </div>
+</div>
+<div class="foot" style="height:900px;margin-top: 480px;width:1100px;margin-left: 180px">
+    <div class="foot-header" style="margin-left: 20px"><b style="font-size: 18px" >评论</b></div>
+    <div style="width:1100px;height:600px;margin-left:12px;margin-top: -10px;">
+        <div style=" margin-top:20px;width:100%;height: 100%">
+            {foreach name='comment' id='vo'}
+          <div  style="margin-let: 100px;margin-top: 20px;height:60px;width:1000px;background-color:#c2ccd1">&nbsp;&nbsp;{$vo.user.nickname}&nbsp;&nbsp;<small>{$vo.create_time}</small>&nbsp;&nbsp;</div>
+            <div style="margin-top: -30px;margin-left: 40px;height: 0px" >{$vo.content}</div>
+            {/foreach}
+            <br>
+            <div align="center">{$comment->render()|raw}</div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

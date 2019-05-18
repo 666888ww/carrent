@@ -1,0 +1,54 @@
+{extend name="public/base"/}
+{block name='content'}
+<div style="margin-top: 80px">
+    <div style="border:1px solid #8D8D8D;height: 150px;width:300px;margin-left: 110px;margin-top: -60px">
+        &nbsp;<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="font-size: 20px;color: #2b669a"></span><a href="selfmessage?id={:session('id')}" style="color: #000" >个人信息</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+        &nbsp;&nbsp<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" style="font-size: 20px;color: #2b669a"></span><a href="{:url('index/oneself/passupdate')}" style="color: #000">密码修改</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+        &nbsp;&nbsp<div style="height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-tag" style="font-size: 20px;color: #2b669a"></span><a href="selforder?name={:session('name')}" style="color: #000">我的订单</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+    </div>
+</div>
+
+<div style="border: 1px solid #c0c0c0;width:600px;height:400px;margin-left: 420px;margin-top: -150px;" id="tex2" >
+    <br>
+    <div class="widget-body" style="margin-left: 140px">
+        <form action="" class="form-horizontal" method="post">
+            <input type="hidden" name="id" value="{:session('id')}">
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">姓&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="title" name="name" placeholder="用户名称" value="{:session('name')}"/>
+                </div>
+            </div>
+            <div class="form-group">
+          <label for="title" class="control-label col-sm-2">昵&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="会员昵称" value="{$data.nickname}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">电&nbsp;&nbsp;&nbsp;&nbsp;话</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="电话" value="{$data.telephone}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">邮&nbsp;&nbsp;&nbsp;&nbsp;箱</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" value="{$data.email}" />
+                    <!--<img src="/static/admin/img/87.jpg">-->
+                </div>
+            </div>
+            <div class="form-group">
+               <label for="title" class="control-label col-sm-2">驾驶证</label>
+                <div class="col-sm-6">
+                    <img src="{$data.image}" style="width:190px;
+	height: 160px;">
+                    <!--<img src="/static/admin/img/87.jpg">-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

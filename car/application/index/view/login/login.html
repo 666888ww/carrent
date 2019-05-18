@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>车辆租赁系统登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/static/index/css/bootstrap.css">
+    <style>
+        #login{
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <br>
+    <div class="panel panel-primary" id="login">
+        <div class="panel-heading">
+           登录
+        </div>
+        <div class="panel-body">
+            <form action="check" method="post">
+                <div class="form-group">
+                    <label>用户名：</label><input type="text" class="form-control" name="name"/>
+                    <label>密&nbsp;&nbsp;&nbsp;码：</label><input type="password" class="form-control" name="pass"/>
+                </div>
+                <a href="{:url('index/register/register')}">立即注册</a>
+                <input type="submit" value="登录" class="btn btn-primary pull-right" />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/static/index/js/jquery-3.3.1.min.js"></script>
+<script src="/static/index/js/bootstrap.js"></script>
+</html>

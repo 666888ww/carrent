@@ -1,0 +1,26 @@
+{extend name="public/base"/}
+{block name='content'}
+<div style="margin-top: 80px">
+    <div style="border:1px solid #8D8D8D;height: 150px;width:300px;margin-left: 110px;margin-top: -60px">
+        &nbsp;<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="font-size: 20px;color: #2b669a"></span><a href="selfmessage?id={:session('id')}" style="color: #000" >个人信息</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+        &nbsp;&nbsp;<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" style="font-size: 20px;color: #2b669a"></span><a href="{:url('index/oneself/passupdate')}" style="color: #000">密码修改</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+        &nbsp;&nbsp;<div style="height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-tag" style="font-size: 20px;color: #2b669a"></span><a href="selforder?name={:session('name')}" style="color: #000">我的订单</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+    </div>
+</div>
+<div style="border: 1px solid #c0c0c0;width:600px;height:200px;margin-left: 420px;margin-top: -150px;" id="tex2" >
+    <br>
+    <div class="widget-body" style="margin-left: 140px">
+        <form action="" method="post">
+            <div style="margin-left: 50px;margin-top: -30px">
+                原密码<input type="text" style="margin-bottom: 20px;margin-top: 80px" name="pass" >
+                <br>
+                新密码<input type="text" name="new_pass" >
+                <br>
+                <button style="margin-top: 20px;margin-left: 40px" type="submit">修改密码</button>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

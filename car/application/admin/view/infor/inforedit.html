@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基于Web的车辆租赁系统的设计与实现</title>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="widget radius-bordered">
+    <div class="widget-header bordered-bottom bordered-themeprimary">
+        <span class="widget-caption">车辆信息编辑</span>
+    </div>
+    <div class="widget-body">
+        <form action="inforupdate" class="form-horizontal" method="post">
+            <input type="hidden" name="id" value="{$data.id}">
+            <div class="form-group">
+                <label for="infortitle" class="control-label col-sm-2">新闻标题</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="infortitle" name="infortitle" placeholder="新闻标题" value="{$data.infortitle}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inforcontent" class="control-label col-sm-2">新闻内容</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="inforcontent" name="inforcontent" value="{$data.inforcontent}">
+                                            </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

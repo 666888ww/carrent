@@ -1,0 +1,61 @@
+{extend name="public/base"/}
+{block name='content'}
+
+<div style=" width:90%;margin-left: 110px;margin-top: 40px">
+    <ul style=" width:100%;">
+        {foreach name="carmessage" id="vo"}
+        <li style="
+	width: 300px;
+	height: 300px;
+	float: left;
+	list-style-type: none;
+     margin:10px;">
+            <img src="{$vo.carimage}" style="width:190px;
+	height: 160px;">
+            <h5>{$vo.name}</h5>
+            <span style="font-size: 14px">{$vo.cardespertion}</span>
+            <p style="font-size: 18px;color: orange">租金：{$vo.price}元</p>
+            {if session('name')}
+            <a href="{:url('index/carrent/carremt',['id'=>$vo.id])}" >
+                <input type="button" style="background-color: red; width:60px;height:40px;font-size:
+18px;color:#fff;margin-top: -50px; " value="租车"/>
+            </a>
+            {else/}
+            <a href="{:url('index/login/login')}" >
+                <input type="button" style="background-color: red; width:60px;height:40px;font-size:
+18px;color:#fff;margin-top: -50px; " value="租车"/>
+            </a>
+            {/if}
+        </li>
+        {/foreach}
+    </ul>
+    <br>
+    <div align="center">{$carmessage->render()|raw}</div>
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    window.onload=function (){
+        var Obt =document.getElementsByTagName('input');
+        for(var i=0;i<Obt.length;i++) {
+            Obt[i].onclick = function () {
+                if ("{:session('name')}") {
+                    location.href = "{:url('index/carrent/carremt')}";
+
+                } else {
+                    layer.msg('请先登录', {
+                        icon: 5,
+                        time: 4000
+                    },function () {
+                        location.href = "{:url('index/login/login')}"
+                    });
+                }
+
+            }
+
+        }
+    }
+</script>
+{/block}
+
+

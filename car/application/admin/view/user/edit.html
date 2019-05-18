@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基于Web的车辆租赁系统的设计与实现</title>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="widget radius-bordered">
+    <div class="widget-header bordered-bottom bordered-themeprimary">
+        <span class="widget-caption">车辆信息编辑</span>
+    </div>
+    <div class="widget-body">
+        <form action="update" class="form-horizontal" method="post">
+            <input type="hidden" name="id" value="{$data.id}">
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆名称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="title" name="name" placeholder="车辆名称" value="{$data.name}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">所属导航</label>
+                <div class="col-sm-6">
+                    <select id="cateid" name="cateid" class="form-control">
+                        <option value="">请选择</option>
+                        {foreach name='cate' id='vo'}
+                        <option value="{$vo.id}">{$vo.catename}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆价格</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="price" name="price" placeholder="车辆价格" value="{$data.price}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆押金</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  name="rent" placeholder="车辆押金" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox col-sm-offset-2 col-sm-6">
+                    <label>
+                        <input type="checkbox" class="form-control" id="sale" name="sale" value="1" />
+                        <span class="text">特价车辆</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆状态</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="stastu" name="status" placeholder="车辆状态" value="{$data.status}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆类型</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="cartype" name="type" placeholder="车辆类型" value="{$data.type}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆描述</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="cardespertion" name="cardespertion" value="{$data.cardespertion}">
+                                            </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">车辆图片</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="carimg" name="carimage" placeholder="车辆图片" value="{$data.carimage}" />
+                    <!--<img src="/static/admin/img/87.jpg">-->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

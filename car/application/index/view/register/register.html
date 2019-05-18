@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>车辆租赁系统注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/static/index/css/bootstrap.css">
+    <style>
+        #login{
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <br>
+    <div class="panel panel-primary" id="login">
+        <div class="panel-heading">
+            注册
+        </div>
+        <div class="panel-body">
+            <form action="insert" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label>用户名：</label><input type="text" class="form-control" name="name"/>
+                <label>密&nbsp;&nbsp;&nbsp;码：</label><input type="password" class="form-control" name="pass"/>
+                <label>确认密码：</label><input type="password" class="form-control" name="repass"/>
+                <label>昵&nbsp;&nbsp;&nbsp;称：</label><input type="text" class="form-control" name="nickname"/>
+                <label>邮&nbsp;&nbsp;&nbsp;箱：</label><input type="email" class="form-control" name="email"/>
+                <label>手机号：</label><input type="text" class="form-control" name="telephone"/>
+                <label>上传驾驶证：</label>
+                <input type="file" class="form-control" name="image" style="border: none"/>
+                <br><br>
+            <input type="submit" value="注册" class="btn btn-primary pull-right" />
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+<script src="/static/index/js/jquery-3.3.1.min.js"></script>
+<script src="/static/index/js/bootstrap.js"></script>
+</html>

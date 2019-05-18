@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基于Web的车辆租赁系统的设计与实现</title>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/admin/laydate/laydate.js"></script>
+</head>
+<body>
+<div class="widget radius-bordered">
+    <div class="widget-header bordered-bottom bordered-themeprimary">
+        <span class="widget-caption">车辆信息编辑</span>
+    </div>
+    <div class="widget-body">
+        <form action="update" class="form-horizontal" method="post">
+            <input type="hidden" name="id" value="{$data.id}">
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">订单ID</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="title" name="ordeid" placeholder="订单ID" value="{$data.ordeid}" readonly="true"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2">归还时间</label>
+                <div class="col-sm-6">
+                    <input type="text" id="test1" name="back_time">
+                </div>
+                <script>
+                    //执行一个laydate实例
+                    laydate.render({
+                        elem: '#test1' //指定元素
+                    });
+                </script>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2">备注</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  name="beizhu"  value="{$data.beizhu}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

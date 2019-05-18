@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基于Web的车辆租赁系统的设计与实现</title>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="widget radius-bordered">
+    <div class="widget-header bordered-bottom bordered-themeprimary">
+        <span class="widget-caption">订单信息</span>
+    </div>
+
+    <div class="widget-body" style="height: 450px;width:100%;">
+        <div class="right" style="position: absolute;left:800px;top:40px;width:300px">
+
+            <img src="{$data.carimage}" style="height: 380px;width:360px"/>
+        </div>
+        <div style="width:600px;margin-top:40px;margin-left: 400px;font-size: 16px ">
+        <form action="insert" class="form-horizontal" method="post"  >
+            <div class="form-group">
+                <label  class="control-label col-sm-2" >用&nbsp;&nbsp;户&nbsp;名</label>
+                <div class="col-sm-6">
+                    <input type="text" name="username" placeholder="用户名" value="{:session('name')}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2">车辆名称</label>
+                <div class="col-sm-6">
+                    <input type="text"   name="carname" placeholder="车辆名称" value="{$data.name}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center"/>
+                </div>
+            </div>
+            <div class="form-group">
+        <label  class="control-label col-sm-2">租&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金</label>
+                <div class="col-sm-6">
+                    <input type="text"  name="priceid"  value="{$data.price}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2">押&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金</label>
+                <div class="col-sm-6">
+                    <input type="text" name="rentid" value="{$data.rent}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center"/>
+                </div>
+            </div>
+            <div style="width:980px; margin:5px auto;margin-left: 20px">
+                开始时间：&nbsp;&nbsp;&nbsp;&nbsp;<input class="laydate-icon"  name="starttime" value="{$data.starttime}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center"><br /><br />
+                结束时间 :&nbsp;&nbsp;&nbsp;&nbsp; <input class="laydate-icon"  name="overtime" value="{$data.starttime}" readonly="true" style="border-bottom: 1px solid #c2c2c2;border-top: none;border-left: none;border-right: none;text-align: center">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <br>
+                    <button class="btn btn-primary" style="margin-top: 80px;margin-left: 130px">确认</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <a href="{:url('index/carrent/carremt')}?id={$data.id}" style="position: absolute;left:710px;top:440px; ">返回上页</a>
+    </div>
+</div>
+</body>
+</html>

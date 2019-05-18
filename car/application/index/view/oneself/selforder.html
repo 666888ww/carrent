@@ -1,0 +1,54 @@
+{extend name="public/base"/}
+{block name='content'}
+<div style="margin-top: 80px">
+    <div style="border:1px solid #8D8D8D;height: 150px;width:300px;margin-left: 30px;margin-top: -60px">
+
+        &nbsp;&nbsp;<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="font-size: 20px;color: #2b669a"></span><a href="selfmessage?id={:session('id')}" style="color: #000" >个人信息</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+        &nbsp;&nbsp;<div style="border-bottom: 1px solid #c0c0c0;height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" style="font-size: 20px;color: #2b669a"></span><a href="{:url('index/oneself/passupdate')}" style="color: #000">密码修改</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+        &nbsp;&nbsp;<div style="height: 30px;line-height: 30px;font-size: 16px" >&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-tag" style="font-size: 20px;color: #2b669a"></span><a href="selforder?name={:session('name')}" style="color: #000">我的订单</a><span class="glyphicon glyphicon-menu-right" style="margin-left: 170px"></span></div>
+
+    </div>
+</div>
+<div class="widget-body" style="border: 1px solid #c0c0c0;width:940px;margin-top:-150px;margin-left: 340px ">
+    <table class="table table-hover table-bordered" style="width:850px;margin-top: 30px;margin-left: 40px">
+        <thead>
+        <tr>
+            <th>订单ID</th>
+            <th>用户名</th>
+            <th>车辆名称</th>
+            <th>租金</th>
+            <th>押金</th>
+            <th>状态</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        {foreach $data as $value}
+        
+        <tr>
+            <td>{$value.create_time|date='YmdHis'}</td>
+            <td>{$value.username}</td>
+            <td>{$value.carname}</td>
+            <td>{$value.priceid}</td>
+            <td>{$value.rentid}</td>
+            <td>{if $value.status==0}待支付{elseif $value.status==2}完成{else/}已支付{/if}</td>
+            <td>{$value.starttime}</td>
+            <td>{$value.overtime}</td>
+            {if $value.status==0}
+            <td>
+                <a href="payment?id={$value.id}" class="btn btn-sm btn-danger">支付</a>
+            </td>
+            {else/}
+            <td>
+                <a href="delete?id={$value.id}" class="btn btn-sm btn-danger">删除</a>
+            </td>
+            {/if}
+        </tr>
+        {/foreach}
+    </table>
+    <br>
+    <div align="center" style="margin-top: -40px">{$data->render()|raw}</div>
+</div>
+{/block}

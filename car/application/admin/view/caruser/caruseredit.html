@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基于Web的车辆租赁系统的设计与实现</title>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="widget radius-bordered">
+    <div class="widget-header bordered-bottom bordered-themeprimary">
+        <span class="widget-caption">用户信息编辑</span>
+    </div>
+    <div class="widget-body">
+        <form action="update" class="form-horizontal" method="post">
+            <input type="hidden" name="id" value="{$data.id}">
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">用户名称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="title" name="name" placeholder="会员名称" value="{$data.name}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">密码</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="密码" value="{$data.pass}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">确认密码</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="repass" name="repass" placeholder="确认密码" value="{$data.repass}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">用户昵称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="会员昵称" value="{$data.nickname}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">电话</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="电话" value="{$data.telephone}">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">邮箱</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" value="{$data.email}" />
+                    <!--<img src="/static/admin/img/87.jpg">-->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button class="btn btn-primary">修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
